@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect, reverse
 from django.views import View
-from .forms import LoginForm, RegisterForm, CheckForm
+from .forms import LoginForm, RegisterForm, CheckForm, AddressCreationForm
 from django.contrib.auth import  login, authenticate
 import ghasedakpack
 from random import randint
@@ -86,3 +86,17 @@ class CheckView(View):
 
         return render(request, 'account/check_otp.html', {'form': form})
 
+
+class AddUserView(View):
+    def post(self, request):
+        form = AddressCreationForm(request.POST)
+        if form.is_valid():
+            address = form.save(commit=False)
+            address.user = request.user
+            address.save()
+
+        return render(request, 'account/add_address.html', {'form': form})
+
+    def get(self, request):
+        form = AddressCreationForm()
+        return render(request, 'account/add_address.html', {'form': form})

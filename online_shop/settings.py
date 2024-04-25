@@ -12,10 +12,8 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 import os
 from pathlib import Path
 
-
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
-
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
@@ -27,7 +25,6 @@ SECRET_KEY = 'django-insecure-j)86jjp&v93-%)p#e33jc(j6c#quk-1jbdc=9(1dcn94^npq$m
 DEBUG = True
 
 ALLOWED_HOSTS = []
-
 
 # Application definition
 
@@ -42,7 +39,8 @@ INSTALLED_APPS = [
     'home.apps.HomeConfig',
     'account.apps.AccountConfig',
     'product.apps.ProductConfig',
-    'cart.apps.CartConfig'
+    'cart.apps.CartConfig',
+    'widget_tweaks',
 
 ]
 
@@ -77,7 +75,6 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'online_shop.wsgi.application'
 
-
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
@@ -87,7 +84,6 @@ DATABASES = {
         'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/5.0/ref/settings/#auth-password-validators
@@ -107,7 +103,6 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-
 # Internationalization
 # https://docs.djangoproject.com/en/5.0/topics/i18n/
 
@@ -118,7 +113,6 @@ TIME_ZONE = 'UTC'
 USE_I18N = True
 
 USE_TZ = True
-
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.0/howto/static-files/
