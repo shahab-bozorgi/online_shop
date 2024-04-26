@@ -74,7 +74,10 @@ class CheckView(View):
         if form.is_valid():
             cd = form.cleaned_data
             if Otp.objects.filter(phone=phone, code=cd["code"]).exists():
-                user = User.objects.create_user(phone=phone)
+                try:
+                    user = User.objects.get(phone=phone)
+                except User.DoesNotExist:
+                    user = User.objects.create_user(phone=phone)
 
                 login(request, user)
                 return redirect('home:home')
