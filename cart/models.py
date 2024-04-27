@@ -23,3 +23,14 @@ class OrderItem(models.Model):
     quantity = models.SmallIntegerField()
     price = models.PositiveIntegerField()
 
+
+class Discount(models.Model):
+    name = models.CharField(max_length=10, unique=True)
+    discount = models.SmallIntegerField(default=0)
+    quantity = models.SmallIntegerField(default=1)
+
+    def __str__(self):
+        return self.name
+
+
+

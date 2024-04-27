@@ -26,6 +26,11 @@ class Cart:
         result = f'{id}-{color}-{size}'
         return result
 
+
+    def remove_cart(self):
+        del self.session[CART_SESSION_ID]
+
+
     def add(self, product,color, size, quantity):
         unique = self.unique_id_generator(product.id, color, size)
         if unique not in self.cart:
