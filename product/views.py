@@ -50,3 +50,6 @@ class ProductList(ListView):
         return context
 
 
+
+print('hello world')
+
